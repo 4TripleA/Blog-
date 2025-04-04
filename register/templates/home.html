@@ -1,0 +1,192 @@
+{% extends "master.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'home.css' %}">
+   <link rel="stylesheet" href="{% static 'master.css' %}">
+   {% block title %}Home{% endblock %}
+   {% block content %}
+   <style>
+        *{
+            margin: 0;
+            padding: 0; 
+        }  
+        body{
+            background-color: #0945cb;
+        } 
+
+        .container{
+            display: flex;
+            justify-content: space-between;
+            padding: 80px 5%;
+        } 
+        .left{
+            flex-basis: 68%;
+            position: sticky;
+            align-self: flex-start;
+            height: 100vh;
+        }
+        .neww:hover{
+            background-color: #0945cb;
+            color: white;
+            transition: 0.5s ease all;
+        }
+        .right{
+            background: #f5f5f5; 
+            position: fixed;
+            flex-basis: 28%;
+            top: 100px;
+            right: 110px;
+            align-self: flex-start;
+            height: 50vh;
+            border-radius: 10px;
+            width: 300px;
+            
+        }
+        hr{
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        .allpicture{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline;
+            margin-top: 10px;
+            margin-left: 10px;
+            
+        }
+        h4{
+            text-align: top;
+            align-items: top;
+            margin-left: 80px;
+            display: inline;
+            margin-top: 17px;
+            font-size: 20px;
+        }
+        b{
+            display: block;
+            margin-left: 50px;
+            margin-top: 10px;
+        }
+        .first,.fourth{
+            background-color: #f5f5f5; 
+            height: 280px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: auto;
+        }
+        .pppp{
+            display: inline;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 900px) {
+            .right{
+                display: none;
+            }
+            .first{
+                width: 350px;
+                height: 250px;
+                padding-right: 15px;
+                padding-left: 10px;
+            }
+            .allpicture{
+                display: none;
+            }
+            .pppp{
+                font-size: 15px;
+                margin-left: 7px;
+            }
+            h4{
+                margin-left: 70px;
+                font-size: 15px;
+                margin-top: 8px;
+            }
+            b{
+                margin-left: 15px;
+            }
+            
+        }
+
+        @media (max-width: 400px) {
+            .first{
+                width: 320px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .first{
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 345px) {
+            .first{
+                width: 285px;
+            }
+        }
+        @media (max-width: 320px) {
+            .first{
+                width: 265px;
+            }
+        }
+        
+
+   </style>
+</head>
+
+ 
+<body> 
+
+<div class="container"> 
+    <div class="left">
+        {% for post in posts %}
+            <article class="first"> 
+            <div>
+                <div style="display: flex;">
+                    <img src="{% static 'Ronaldo.jpeg' %}" class="allpicture">
+                    <h2 class="pppp">{{ post.title }}</h2> 
+                    <h4>{{ post.author }}</h4>
+                
+                </div>  
+                <hr>    
+                <b>{{ post.content }}</b>
+            </div>
+            </article>
+        {% endfor %}
+
+            
+        
+    </div>
+    <div class="right">
+        <h1 style="margin-left: 10px; margin-top: 10px;">LATEST NEWS</h1>
+        <hr>
+        <p style="padding-left: 5px; padding-right: 5px; font-weight: bold;">Happy New Week!!!</p>
+        <hr>
+        <p style="padding-left: 5px; padding-right: 5px; font-weight: bold;">Mike vs Jake</p>
+        <hr>
+        <p style="padding-left: 5px; padding-right: 5px; font-weight: bold;">Football is Back!!!</p>
+        <hr>
+        <p style="padding-left: 5px; padding-right: 5px; font-weight: bold;">Man United</p>
+        <hr>
+        <p style="padding-left: 5px; padding-right: 5px; font-weight: bold;">Football Today</p>
+        <hr>
+
+        <div style="margin-top: 40px;">
+            <a href="{% url 'newnews' %}" class="neww" style="margin-left: 105px; font-size: 20px; color: black; text-decoration: none; border: 2px black solid; padding: 2px; border-radius: 5px;">Post News</a>
+        </div>
+    </div>
+
+    
+</div>
+</body>
+
+{% endblock %}
+</html>

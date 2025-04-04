@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    background-color: #ffffff;
+}
+p{
+    font-size: 50px;
+    text-align: center;
+    align-items: center;
+    margin-top: 230px;
+    color: blue; 
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    animation: slide 5s linear infinite;
+} 
+@keyframes slide {
+    0% {
+        transform: translateX();
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: blue;
+} 
+h2{
+    text-align: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 30px;
+    color: black;
+    border: 2px blue solid;
+    border-radius: 5px;
+    margin-left: 530px;
+    margin-right: 530px;
+    background-color: blue;
+} 
+h2:hover{
+    background-color: white;
+} 

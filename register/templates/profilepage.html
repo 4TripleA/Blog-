@@ -1,0 +1,239 @@
+{% extends "master.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'profilepage.css' %}">
+   <link rel="stylesheet" href="{% static 'master.css' %}">
+   {% block title %}Profile Page{% endblock %}
+   {% block content %}
+   <style>
+    *{  
+        margin: 0;
+        padding: 0;
+    } 
+    body{
+        background-color: #0945cb;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        padding: 80px 3%;
+    } 
+    .left{
+        flex-basis: 64%;
+        top: 70px;
+        align-self: flex-start;
+        height: 80vh;
+        width: 900px;
+        background: #f5f5f5;
+        position: fixed;
+        border-radius: 10px;
+        margin-top: 10px;
+
+    }
+    .right{
+        background-color: whitesmoke;
+        flex-basis: 28%;
+        position: sticky;
+        top: 100px;
+        height: 50vh;
+        margin-left: 1000px;
+        border-radius: 10px;
+        width: 25%;
+
+    }
+    hr{
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .Profile{
+        border-radius: 10%;
+        height: 100px;
+        margin-left: 400px;
+        margin-top: 25px;
+        width: 100px;
+    }
+    .changing{
+        height: 50px;
+        background-color: black;
+        color: white;
+        margin-top: 150px;
+        font-size: 18px;
+        border-color: #D3D3D3;
+        position: fixed;
+        top: 395px;
+        width: 900px;
+
+ 
+    }
+    .changing:hover{
+        background-color: #D3D3D3;
+        color: black;
+        transition: 0.5s ease;
+    }
+    .was{
+        margin-top: 12px;
+        margin-bottom: 6px;
+        margin-left: 400px;
+    }
+    .wass{
+        margin-left: 400px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+    .name{
+        margin-left: 390px;
+        margin-top: 20px;
+        font-size: 25px;
+    }
+    .SAT{
+        height: 50px;
+        width: 200px;
+        background-color: #f5f5f5;
+        color: #0945cb;
+        margin-left: 10px;
+        margin-right: 15px;    
+    }
+    .SAT:hover{
+        background-color: #0945cb;
+        color: #f5f5f5;
+        transition: 1.2s ease;  
+    }
+    @media (max-width: 900px) {
+        .right{
+            display: none;
+        }
+        .left{
+            width: 387px;
+            height: 80vh;
+        }
+        .Profile {
+            margin-left: 140px;
+            margin-top: 50px;
+        }
+        .name{
+            margin-left: 140px;
+        }
+        .changing{
+            width: 387px;
+        }
+    }
+    @media (max-width: 430px) {
+        .left{
+            width: 400px;
+        }
+        .changing{
+            width: 400px;
+        }
+    }
+    @media (max-width: 414px) {
+        .left{
+            width: 390px;
+        }
+        .changing{
+            width: 390px;
+        }
+    }
+    @media (max-width: 412px) {
+        .left{
+            width: 385px;
+        }
+        .changing{
+            width: 385px;
+        }
+    }
+    @media (max-width: 393px) {
+        .left{
+            width: 363px;
+        }
+        .changing{
+            width: 363px;
+        }
+    }
+    @media (max-width: 390px) {
+        .left{
+            width: 365px;
+        }
+        .changing{
+            width: 365px;
+        }
+    }
+    @media (max-width: 375px) {
+        .left{
+            width: 350px;
+        }
+        .changing{
+            width: 350px;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .left{
+            width: 335px;
+        }
+        .changing{
+            width: 335px;
+        }
+        .Profile{
+            margin-left: 110px;
+        }
+        .name{
+            margin-left: 110px;
+        }
+    }
+    @media (max-width: 345px) {
+        .left{
+            width: 323px;
+        }
+        .changing{
+            width: 323px;
+        }
+    }
+    @media (max-width: 320px) {
+        .left{
+            width: 300px;
+        }
+        .Profile{
+            margin-left: 100px;
+        }
+    }
+    
+   </style>
+</head>
+<body>    
+  <div class="container">
+      <div class="left">
+        <img src="{% static 'Ronaldo.jpeg' %}" class="Profile">
+        <p class="name">{{ profiles.user }}</p>
+        <!-- <button type="submit" class="changing">CHANGE PASSWORD</button> -->
+        <p class="was">{{ form.bio }}</p> 
+        <p class="wass">{{ form.location }}</p>
+        <div style="text-align: center; align-items: center; margin-top: 50px;">
+           <a href=""><img src="{% static 'FB.png' %}" style="width: 40px; height: 40px; margin-right: 50px;"></a>
+           <a href=""><img src="{% static 'whats.png' %}" style="width: 40px; height: 40px; margin-right: 50px;"></a>
+           <a href=""><img src="{% static 'LN.png' %}" style="width: 40px; height: 40px;"></a>
+        </div>
+        <a href="{% url 'editprofile' %}" class="changing" style="text-decoration: none; text-align: center; padding-top: 5px;">EDIT PROFILE</a>
+      </div>
+      <div class="right">
+        <h1 style="margin-left: 10px; margin-top: 10px;">LATEST NEWS</h1>
+        <hr>
+        <p style="padding-left: 5px; padding-right: 5px; font-weight: bold;">Lorem ipsum dolor sit amet, consectetur</p>
+        <hr>
+        <p style="padding-left: 5px; padding-right: 5px; font-weight: bold;">Lorem ipsum dolor sit amet, consectetur</p>
+        <hr>
+        <p style="padding-left: 5px; padding-right: 5px; font-weight: bold;">Lorem ipsum dolor sit amet, consectetur</p>
+        <hr>
+        <p style="padding-left: 5px; padding-right: 5px; font-weight: bold;">Lorem ipsum dolor sit amet, consectetur</p>
+       
+    </div>
+   </div>
+</body>
+{% endblock %}
+</html>
+
+

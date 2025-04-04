@@ -1,0 +1,23 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: blue;
+}
+.navbar{ 
+	display: flex;
+	background-color: #ffffff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	box-shadow: 2px 2px 2px 2px;
+	position: fixed;
+	top: auto;
+	width: 100%;
+	z-index: 1000;
+
+}
+.nav-links{
+	margin-left: 850px;
+	margin-top: 10px;
+}

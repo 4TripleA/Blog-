@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}Base{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'master.css' %}">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        } 
+        .navbar{ 
+            display: flex;
+            background-color: #ffffff;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-shadow: 2px 2px 2px 2px;
+            position: fixed;
+            top: 0.1px; 
+            width: 100%; 
+            z-index: 1000;
+
+        }
+        .nav-links{
+            margin-left: 900px;
+            margin-top: 10px;
+        }
+        .imgg{
+            height: 40px; 
+            width: 40px; 
+            margin-left: 30px; 
+            border-radius: 50%;
+        }
+
+        @media (max-width: 900px) {
+            .navbar{
+                height: 40px;
+            }
+            .nav-links{
+                margin-left: 130px;
+            }
+            /* .home, .pro, .logg{
+                display: none;
+            } */
+            .imgg{
+                margin-left: 10px;
+            }
+
+        }
+        .home{
+            margin-right: 40px; 
+            text-decoration: none; 
+            color: black; 
+            font-size: 20px;
+        }
+        .pro{
+            margin-right: 40px;
+            text-decoration: none; 
+            color: black; 
+            font-size: 20px;
+        }
+        .men{
+            height: 20px; 
+            width: 30px; 
+            margin-right: 50px;
+        }
+        .logg{
+            text-decoration: none; 
+            color: black; 
+            font-size: 20px; 
+            margin-right: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links{
+                margin-left: 100px;
+            }
+            .home, .pro, .men, .logg{
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .nav-links{
+                margin-left: 80px;
+            }
+        }
+
+        @media (max-width: 345px) {
+            .nav-links{
+                margin-left: 60px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .nav-links{
+                margin-left: 75px;
+            }
+        }
+        @media (max-width: 320px) {
+            .nav-links{
+                margin-left: 10px;
+            }
+        }
+        
+         
+    </style>
+</head>
+<body class="dis">  
+    
+	<header>
+		<div class="navbar">
+			<img src="{% static 'Blog logo.png' %}" class="imgg" >
+			<div class="nav-links">
+				<a href="{% url 'home' %}" class="home"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" style="margin-right: 12px;" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+  <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+</svg></a>
+				<a href="{% url 'profile' user %}" class="pro"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" style="margin-right: 12px;" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+</svg></a>
+
+                <a href="{% url 'newnews' %}"><img src="{% static 'add2.png' %} " class="men"></a>
+				<a href="{% url 'logout' %}" class="logg"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" style="margin-right: 12px;" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+</svg></a>
+               
+			</div>
+		</div>
+	</header>
+</body>
+
+{% block content %}
+{% endblock %}
+</html>

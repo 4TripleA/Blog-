@@ -1,0 +1,61 @@
+{% extends "master.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}Edit Profile{% endblock %}
+    {% block content %}
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #0945cb;
+        }
+        form{
+            background-color: whitesmoke;
+            text-align: center;
+            align-items: center;
+            margin-top: 150px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            margin-left: 300px;
+            margin-right: 300px;
+            border-radius: 5px;
+        }
+        input{
+            width: 200px;
+            margin-bottom: 30px;
+        }
+        button{
+            width: 180px;
+            height: 23px;
+            background-color: #0945cb;
+            border-color: #0945cb;
+            border-radius: 4px;
+        }
+        button:hover{
+            color: #0945cb;
+            background-color: black;
+            border-color: black;
+            transition: 0.5s ease all;
+        }
+        label{
+            font-size: 20px;
+            color: #0945cb;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+{% endblock %}
+</html>

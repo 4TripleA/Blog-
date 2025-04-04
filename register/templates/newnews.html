@@ -1,0 +1,169 @@
+{% extends "master.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}POST{% endblock %} {% block content %}
+    <link rel="stylesheet" href="{% static 'newnews.css' %}" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #0945cb;
+      } 
+      .first {
+        color: #0945cb;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .seconds {
+        text-align: center;
+        align-items: center;
+        background-color: #f5f5f5;
+        margin-left: 350px;
+        margin-right: 350px;
+        margin-top: 70px;
+        height: 500px;
+        padding-top: 20px;
+        border-radius: 10px;
+        border: 1px black solid;
+      }
+      .TITLE,
+      .Body {
+        background: transparent;
+        margin-right: 450px;
+        margin-left: 77px;
+      }
+      .content {
+        border-radius: 5px;
+        padding-top: 10px;
+        padding-left: 15px;
+        margin-right: 10px;
+        margin-top: 50px;
+        height: 220px;
+        width: 500px;
+      }
+      input {
+        margin-left: 3px;
+        width: 490px;
+      }
+      .l-text {
+        margin-left: 1px;
+      }
+      .seventh {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+      }
+      .post {
+        width: 500px;
+        background-color: #0945cb;
+        height: 40px;
+        color: #f5f5f5;
+        border-radius: 5px;
+        font-size: 15px;
+      }
+      .post:hover {
+        background-color: #f5f5f5;
+        color: #0945cb;
+        transition: 0.5s ease;
+      }
+      label {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      @media (max-width: 900px) {
+        .seconds{
+          margin-left: 10px;
+          width: 365px;
+          height: 550px;
+
+        }
+        label{
+          display: none;
+        }
+        input[type=text]{
+          width: 320px;
+          margin-top: 20px;
+        }
+        .content{
+          width: 320px;
+          margin-left: 5px;
+          height: 140px;
+          margin-top: 80px;
+        }
+        .post{
+          margin-top: 50px;
+          width: 340px;
+          
+        }
+      }
+      @media (max-width: 428px) {
+        .seconds{
+          width: 410px;
+        }
+      }
+      @media (max-width: 414px) {
+        .seconds{
+          width: 390px;
+        }
+      }
+      @media (max-width: 412px) {
+        .seconds{
+          width: 390px;
+        }
+      }
+      @media (max-width: 390px) {
+        .seconds{
+          width: 370px;
+        }
+      }
+      @media (max-width: 375px) {
+        .seconds{
+          width: 355px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .seconds{
+          width: 340px;
+          height: 580px;
+        }
+        .post{
+          width: 330px;
+        }
+        input[type=text], .content{
+          width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="seconds">
+      <div class="first">
+        <h1>POST NEWS!!!</h1>
+      </div>
+
+      <form method="post">
+        {% csrf_token %} {{ form }}
+        <!-- <div class="third">
+                <label class="l-text">TITLE</label>
+                <input type="text" class="TITLE" style="width: 500px; height: 30px;" required>
+            </div>
+
+            <div class="sixth"> 
+                <label>Body</label>
+                <input type="text" class="Body" placeholder="Enter your News Content" required>
+            </div> -->
+
+        <div class="seventh">
+          <button type="submit" class="post">POST</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  {% endblock %}
+</html>
